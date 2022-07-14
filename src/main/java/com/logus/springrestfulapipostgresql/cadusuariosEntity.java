@@ -1,11 +1,17 @@
 package com.logus.springrestfulapipostgresql;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.servlet.annotation.HttpConstraint;
+
+import org.hibernate.annotations.Check;
+import org.springframework.boot.convert.DataSizeUnit;
 
 
 @Entity
@@ -22,20 +28,21 @@ public class cadusuariosEntity {
 	    @Column(name = "dcr_login", nullable = false)
 	    private String dcrLogin;
 	    
-	    @Column(name = "dcr_senha", nullable = false)
-	    private String dcrSenha;
+	    @Column
+		(name = "dcr_senha", nullable = false)
+		private String dcrSenha;		
 	    
 	    @Column(name = "dat_desativacao", nullable = false)
-	    private String datDesativacao;
+	    private Date datDesativacao;
 	    
 	    @Column(name = "dat_cadastro", nullable = false)
-	    private String datCadastro;
+	    private Date datCadastro;
 	    
 	 
 	    public cadusuariosEntity() {
 	    }
 		 
-	    public cadusuariosEntity(String dcrUsuario, String dcrLogin, String dcrSenha,String datDesativacao, String datCadastro) {
+	    public cadusuariosEntity(String dcrUsuario, String dcrLogin, String dcrSenha,Date datDesativacao, Date datCadastro) {
 	         this.dcrUsuario = dcrUsuario;
 	         this.dcrLogin = dcrLogin;
 	         this.dcrSenha = dcrSenha;
@@ -74,17 +81,17 @@ public class cadusuariosEntity {
 	        this.dcrSenha = dcrSenha;
 	    }
 	    
-	    public String getDatDesativacao() {
+	    public Date getDatDesativacao() {
 	        return datDesativacao;
 	    }
-	    public void setDatDesativacao(String datDesativacao) {
+	    public void setDatDesativacao(Date datDesativacao) {
 	        this.datDesativacao = datDesativacao;
 	    }
 	    
-	    public String getDatCadastro() {
+	    public Date getDatCadastro() {
 	    	return datCadastro;
 	    }
-	    public void setDatCadastro(String datCadastro) {
+	    public void setDatCadastro(Date datCadastro) {
 	    	this.datCadastro = datCadastro;
 
 	    }
